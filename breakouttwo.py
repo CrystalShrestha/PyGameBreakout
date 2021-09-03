@@ -4,8 +4,8 @@ pygame.init()
 pygame.mixer.init()
 
 
-WIDTH = 600
-HEIGHT = 750
+WIDTH = 800
+HEIGHT = 870
 size = (WIDTH,HEIGHT)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Breakout")
@@ -86,8 +86,8 @@ all_bricks = pygame.sprite.Group()
 
 brick_width = 55
 brick_height = 16
-x_gap = 7
-y_gap = 5
+x_gap = 5
+y_gap = 7
 wall_width = 16
 
 def bricks():
@@ -183,8 +183,15 @@ def main():
             ball.rect.y = HEIGHT // 2- 5
             ball.velocity[1] = ball.velocity[1]
 
+        if pygame.sprite.collide_mask(ball, paddle):
+            ball.rect.x += ball.velocity[0]
+            ball.rect.y -= ball.velocity[1]
+            ball.bounce()
 
-
+        brick_collision_list = pygame.sprite.spritecollide(ball, all_bricks, False)
+        for brick in brick_collision_list:
+            ball.bounce()
+            brick.kill()
 
 
         screen.fill(black)
