@@ -31,9 +31,9 @@ paddle_height = 20
 
 all_sprites_list = pygame.sprite.Group()
 
-brick_sound = pygame.mixer.Sound('sounds_brick.wav')
-paddle_sound = pygame.mixer.Sound('sounds_paddle.wav')
-wall_sound = pygame.mixer.Sound('sounds_wall.wav')
+brick_sound = pygame.mixer.Sound('Atari Breakout\sounds_brick.wav')
+paddle_sound = pygame.mixer.Sound('Atari Breakout\sounds_paddle.wav')
+wall_sound = pygame.mixer.Sound('Atari Breakout\sounds_wall.wav')
 
 class Brick(pygame.sprite.Sprite):
     def __init__(self, color, width, height):
@@ -192,7 +192,7 @@ def main(score, balls):
             ball.velocity[1] = ball.velocity[1]
             balls += 1
             if balls == 4:
-                font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
+                font = pygame.font.Font('Atari Breakout\DSEG14Classic-Bold.ttf', 70)
                 text = font.render("GAME OVER", 1, white)
                 text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
                 screen.blit(text, text_rect)
@@ -229,7 +229,7 @@ def main(score, balls):
                 score += 7
                 brick.kill()
             if len(all_bricks) == 0:
-                font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
+                font = pygame.font.Font('Atari Breakout\DSEG14Classic-Bold.ttf', 70)
                 text = font.render("CONGRATULATIONS", 1, white)
                 text_rect = text.get_rect(cener=(WIDTH / 2, HEIGHT / 2))
                 all_sprites_list.add(ball)
@@ -270,7 +270,7 @@ def main(score, balls):
         pygame.draw.line(screen, yellow, [(WIDTH - wall_width / 2) - 1, 212.5 + 6 * brick_height + 6 * y_gap],
                          [(WIDTH - wall_width / 2) - 1, 212.5 + 8 * brick_height + 8 * y_gap], wall_width)
 
-        font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
+        font = pygame.font.Font('Atari Breakout\DSEG14Classic-Bold.ttf', 70)
         text = font.render(str(f"{score:03}"), 1, white)
         screen.blit(text, (80, 120))
         text = font.render(str(balls), 1, white)
