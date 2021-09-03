@@ -26,7 +26,7 @@ score = 0
 balls = 1
 velocity = 4
 
-paddle_width = 54
+paddle_width = 80
 paddle_height = 20
 
 all_sprites_list = pygame.sprite.Group()
@@ -88,11 +88,11 @@ paddle.rect.y = HEIGHT - 65
 
 all_bricks = pygame.sprite.Group()
 
-brick_width = 55
+brick_width = 80
 brick_height = 16
 x_gap = 5
 y_gap = 7
-wall_width = 16
+wall_width = 2
 
 def bricks():
     for j in range(9):
