@@ -1,4 +1,4 @@
-from game import Game
+from breakouttwo import Game
 
 g = Game()
 
