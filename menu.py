@@ -1,6 +1,7 @@
 import pygame
 
-class Menu():
+
+class Menu:
     def __init__(self, game):
         self.game = game
         self.mid_w, self.mid_h = self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2
@@ -15,6 +16,7 @@ class Menu():
         self.game.window.blit(self.game.display, (0, 0))
         pygame.display.update()
         self.game.reset_keys()
+
 
 class MainMenu(Menu):
     def __init__(self, game):
@@ -37,7 +39,6 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", 20, self.creditsx, self.creditsy)
             self.draw_cursor()
             self.blit_screen()
-
 
     def move_cursor(self):
         if self.game.DOWN_KEY:
@@ -79,6 +80,7 @@ class OptionsMenu(Menu):
         self.state = 'Controls'
         self.leftx, self.lefty = self.mid_w, self.mid_h + 20
         self.rightx, self.righty = self.mid_w, self.mid_h + 40
+        self.escx, self.escy = self.mid_w, self.mid_h + 60
         self.cursor_rect.midtop = (self.rightx + self.offset, self.righty)
 
     def display_menu(self):
@@ -88,8 +90,9 @@ class OptionsMenu(Menu):
             self.check_input()
             self.game.display.fill((0, 0, 0))
             self.game.draw_text('Controls', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 30)
-            self.game.draw_text("left arrow key", 15, self.leftx, self.lefty)
-            self.game.draw_text("right ARROW KEY", 15, self.rightx, self.righty)
+            self.game.draw_text("Left Arrow Key", 15, self.leftx, self.lefty)
+            self.game.draw_text("Right Arrow Key", 15, self.rightx, self.righty)
+            self.game.draw_text("Esc To Exit", 15, self.escx, self.escy)
 
             self.blit_screen()
 
@@ -98,15 +101,14 @@ class OptionsMenu(Menu):
             self.game.curr_menu = self.game.main_menu
             self.run_display = False
 
-        elif self.game.START_KEY :
+        elif self.game.START_KEY:
             pass
-
-
 
 
 class CreditsMenu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
+
     def display_menu(self):
         self.run_display = True
         while self.run_display:
