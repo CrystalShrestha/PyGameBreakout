@@ -1,6 +1,16 @@
 import pygame
+import sys
 from menu import *
+from score import *
 
+
+class highestScore():
+    def __init__(self):
+        pygame.init()
+
+    def HighestScore():
+        with open("Highest score.txt", "r") as f:
+            return f.read()
 
 class Game():
     def __init__(self):
@@ -12,15 +22,17 @@ class Game():
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
         self.font_name = '8-BIT WONDER.TTF'
         self.title=pygame.display.set_caption('Breakout')
-        self.icon=pygame.image.load('breakouticon-removebg-preview.png')
-        self.icon_set=pygame.display.set_icon(self.icon)
+        #self.icon=pygame.image.load('breakouticon-removebg-preview.png')
+        #self.icon_set=pygame.display.set_icon(self.icon)
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
         self.credits = CreditsMenu(self)
         self.curr_menu = self.main_menu
 
+    @property
     def game_loop(self):
+        global highestScore, highestScore
         while self.playing:
             self.check_events()
             if self.START_KEY:
@@ -52,15 +64,23 @@ class Game():
             score = 0
             balls = 1
             velocity = 4
+            try:
+                highestScore = int(HighestScore())
+            except:
+                highestScore = 0
 
             paddle_width = 80
             paddle_height = 20
+
+
 
             all_sprites_list = pygame.sprite.Group()
 
             brick_sound = pygame.mixer.Sound('sounds_brick.wav')
             paddle_sound = pygame.mixer.Sound('sounds_paddle.wav')
             wall_sound = pygame.mixer.Sound('sounds_wall.wav')
+
+
 
             class Brick(pygame.sprite.Sprite):
                 def __init__(self, color, width, height):
@@ -97,6 +117,7 @@ class Game():
                 def update(self):
                     self.rect.x += self.velocity[0]
                     self.rect.y += self.velocity[1]
+
 
                 def bounce(self):
                     self.velocity[0] = self.velocity[0]
@@ -179,8 +200,11 @@ class Game():
             all_sprites_list.add(paddle)
             all_sprites_list.add(ball)
 
+
+
             def main(score, balls):
 
+                global highestScore
                 step = 0
 
                 run = True
@@ -223,7 +247,26 @@ class Game():
                             pygame.display.update()
                             pygame.time.wait(2000)
                             run = False
+                            while  4:
+                                restart = False
+                                for event in pygame.event.get():
+                                    if event.type == pygame.QUIT:
+                                        sys.exit()
+                                    if event.type == pygame.KEYDOWN:
+                                        if event.key == pygame.K_ESCAPE:
+                                            sys.exit()
+                                        if not (event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT):
+                                            restart = True
 
+                                if restart:
+                                    screen.fill(black)
+                                    # brick_wall(WIDTH)
+                                    balls = 4
+                                    score = 0
+                                    break
+
+                            balls = 0
+                    pygame.display.update()
                     if pygame.sprite.collide_mask(ball, paddle):
                         ball.rect.x += ball.velocity[0]
                         ball.rect.y -= ball.velocity[1]
@@ -261,6 +304,10 @@ class Game():
                             pygame.display.update()
                             pygame.time.wait(2000)
                             run = False
+                        if (highestScore < score):
+                            highestScore = score
+                        with open("Highest score.txt", "w") as f:
+                            f.write(str(highestScore))
 
                     screen.fill(black)
 
@@ -301,14 +348,14 @@ class Game():
                                      [(WIDTH - wall_width / 2) - 1, 212.5 + 6 * brick_height + 6 * y_gap],
                                      [(WIDTH - wall_width / 2) - 1, 212.5 + 8 * brick_height + 8 * y_gap], wall_width)
 
-                    font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
-                    text = font.render(str(f"{score:03}"), 1, white)
-                    screen.blit(text, (80, 120))
+                    font = pygame.font.Font('DSEG14Classic-Bold.ttf', 40)
+                    text = font.render(str(f"score {score}"), 1, white)
+                    screen.blit(text, (20, 120))
                     text = font.render(str(balls), 1, white)
                     screen.blit(text, (520, 41))
-                    text = font.render('000', 1, white)
-                    screen.blit(text, (580, 120))
-                    text = font.render('1', 1, white)
+                    #text = font.render('000', 1, white)
+                    #screen.blit(text, (580, 120))
+                    text = font.render(f"High Score {highestScore}", 1, white)
                     screen.blit(text, (20, 40))
 
                     all_sprites_list.draw(screen)
@@ -316,12 +363,12 @@ class Game():
                     pygame.display.update()
 
                     clock.tick(FPS)
-
+                    pygame.display.update()
                 pygame.quit()
 
             main(score, balls)
-            pygame.display.update()
-            self.reset_keys()
+
+        self.reset_keys()
 
 
 
