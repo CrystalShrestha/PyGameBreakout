@@ -1,8 +1,7 @@
 import pygame
-import sys
 from menu import *
 from score import *
-
+pygame.init()
 
 class highestScore():
     def __init__(self):
@@ -241,7 +240,7 @@ class Game():
                         balls += 1
                         if balls == 4:
                             font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
-                            text = font.render("GAME OVER", 1, white)
+                            text = font.render("GAME OVER", True, white)
                             text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
                             screen.blit(text, text_rect)
                             pygame.display.update()
@@ -295,10 +294,11 @@ class Game():
                         else:
                             score += 7
                             brick.kill()
-                        if len(all_bricks) == 0:
-                            font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
-                            text = font.render("CONGRATULATIONS", 1, white)
-                            text_rect = text.get_rect(cener=(WIDTH / 2, HEIGHT / 2))
+                        if score == 288:
+                            font = pygame.font.Font('DSEG14Classic-Bold.ttf', 30)
+                            text = font.render("CONGRATULATIONS" + "\n" +
+                                        " GAME FINISHED ", True, white)
+                            text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
                             all_sprites_list.add(ball)
                             screen.blit(text, text_rect)
                             pygame.display.update()
@@ -363,11 +363,11 @@ class Game():
                     pygame.display.update()
 
                     clock.tick(FPS)
-                    pygame.display.update()
+
                 pygame.quit()
 
             main(score, balls)
-
+            pygame.display.update()
         self.reset_keys()
 
 
