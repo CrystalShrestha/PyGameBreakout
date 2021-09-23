@@ -1,26 +1,28 @@
-import pygame
+import sys
 from menu import *
 from score import *
 pygame.init()
 
-class highestScore():
+
+class highestScore:
     def __init__(self):
         pygame.init()
 
-    def HighestScore():
+    def HighestScore(self):
         with open("Highest score.txt", "r") as f:
             return f.read()
+
 
 class Game():
     def __init__(self):
         pygame.init()
         self.running, self.playing = True, False
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
-        self.DISPLAY_W, self.DISPLAY_H = 760,820
-        self.display = pygame.Surface((self.DISPLAY_W,self.DISPLAY_H))
-        self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
+        self.DISPLAY_W, self.DISPLAY_H = 760, 820
+        self.display = pygame.Surface((self.DISPLAY_W, self.DISPLAY_H))
+        self.window = pygame.display.set_mode(((self.DISPLAY_W, self.DISPLAY_H)))
         self.font_name = '8-BIT WONDER.TTF'
-        self.title=pygame.display.set_caption('Breakout')
+        self.title = pygame.display.set_caption('Breakout')
         #self.icon=pygame.image.load('breakouticon-removebg-preview.png')
         #self.icon_set=pygame.display.set_icon(self.icon)
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
@@ -29,23 +31,23 @@ class Game():
         self.credits = CreditsMenu(self)
         self.curr_menu = self.main_menu
 
-    @property
     def game_loop(self):
         global highestScore, highestScore
         while self.playing:
             self.check_events()
             if self.START_KEY:
-                self.playing= False
+                self.playing = False
             self.display.fill(self.BLACK)
-
 
             pygame.init()
             pygame.mixer.init()
 
             WIDTH = 760
             HEIGHT = 820
+
+            H=950
             size = (WIDTH, HEIGHT)
-            screen = pygame.display.set_mode(size)
+            screen = pygame.display.set_mode((size))
             pygame.display.set_caption("Breakout")
             clock = pygame.time.Clock()
             FPS = 60
@@ -80,13 +82,13 @@ class Game():
             wall_sound = pygame.mixer.Sound('sounds_wall.wav')
 
 
-
             class Brick(pygame.sprite.Sprite):
                 def __init__(self, color, width, height):
                     super().__init__()
                     self.image = pygame.Surface([width, height])
                     pygame.draw.rect(self.image, color, [0, 0, width, height])
                     self.rect = self.image.get_rect()
+
 
             class Paddle(pygame.sprite.Sprite):
                 def __init__(self, color, width, height):
@@ -239,13 +241,17 @@ class Game():
                         ball.velocity[1] = ball.velocity[1]
                         balls += 1
                         if balls == 4:
-                            font = pygame.font.Font('DSEG14Classic-Bold.ttf', 70)
+                            font = pygame.font.Font('DSEG14Classic-Bold.ttf',70)
+                            font2 = pygame.font.Font('DSEG14Classic-Bold.ttf', 20)
                             text = font.render("GAME OVER", True, white)
                             text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
+                            text1=font2.render("Press space to retry", True, white)
+                            text1_rect = text1.get_rect(center=(WIDTH / 2, H /2))
                             screen.blit(text, text_rect)
+                            screen.blit(text1, text1_rect)
                             pygame.display.update()
                             pygame.time.wait(2000)
-                            run = False
+                            run = True
                             while  4:
                                 restart = False
                                 for event in pygame.event.get():
@@ -296,14 +302,13 @@ class Game():
                             brick.kill()
                         if score == 288:
                             font = pygame.font.Font('DSEG14Classic-Bold.ttf', 30)
-                            text = font.render("CONGRATULATIONS" + "\n" +
-                                        " GAME FINISHED ", True, white)
+                            text = font.render("CONGRATULATIONS", True, white)
                             text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
                             all_sprites_list.add(ball)
                             screen.blit(text, text_rect)
                             pygame.display.update()
                             pygame.time.wait(2000)
-                            run = False
+                            run = True
                         if (highestScore < score):
                             highestScore = score
                         with open("Highest score.txt", "w") as f:
@@ -349,13 +354,13 @@ class Game():
                                      [(WIDTH - wall_width / 2) - 1, 212.5 + 8 * brick_height + 8 * y_gap], wall_width)
 
                     font = pygame.font.Font('DSEG14Classic-Bold.ttf', 40)
-                    text = font.render(str(f"score {score}"), 1, white)
+                    text = font.render(str(f"score {score}"), True, white)
                     screen.blit(text, (20, 120))
-                    text = font.render(str(balls), 1, white)
+                    text = font.render(str(balls), True, white)
                     screen.blit(text, (520, 41))
                     #text = font.render('000', 1, white)
                     #screen.blit(text, (580, 120))
-                    text = font.render(f"High Score {highestScore}", 1, white)
+                    text = font.render(f"High Score {highestScore}", True, white)
                     screen.blit(text, (20, 40))
 
                     all_sprites_list.draw(screen)
@@ -369,8 +374,6 @@ class Game():
             main(score, balls)
             pygame.display.update()
         self.reset_keys()
-
-
 
     def check_events(self):
         for event in pygame.event.get():
@@ -390,9 +393,9 @@ class Game():
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
 
-    def draw_text(self, text, size, x, y ):
-        font = pygame.font.Font(self.font_name,size)
+    def draw_text(self, text, size, x, y):
+        font = pygame.font.Font(self.font_name, size)
         text_surface = font.render(text, True, self.WHITE)
         text_rect = text_surface.get_rect()
-        text_rect.center = (x,y)
-        self.display.blit(text_surface,text_rect)
+        text_rect.center = (x, y)
+        self.display.blit(text_surface, text_rect)
