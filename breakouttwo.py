@@ -23,8 +23,7 @@ class Game():
         self.window = pygame.display.set_mode(((self.DISPLAY_W, self.DISPLAY_H)))
         self.font_name = '8-BIT WONDER.TTF'
         self.title = pygame.display.set_caption('Breakout')
-        #self.icon=pygame.image.load('breakouticon-removebg-preview.png')
-        #self.icon_set=pygame.display.set_icon(self.icon)
+    
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
@@ -45,7 +44,7 @@ class Game():
             WIDTH = 760
             HEIGHT = 820
 
-            H=950
+            H = 950
             size = (WIDTH, HEIGHT)
             screen = pygame.display.set_mode((size))
             pygame.display.set_caption("Breakout")
