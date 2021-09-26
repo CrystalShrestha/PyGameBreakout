@@ -22,7 +22,7 @@ class Game():
         self.display = pygame.Surface((self.DISPLAY_W, self.DISPLAY_H))
         self.window = pygame.display.set_mode(((self.DISPLAY_W, self.DISPLAY_H)))
         self.font_name = '8-BIT WONDER.TTF'
-        self.title = pygame.display.set_caption('Breakout')
+        self.title = pygame.display.set_caption('Preview Prototype-Breakout')
     
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
@@ -242,12 +242,16 @@ class Game():
                         if balls == 4:
                             font = pygame.font.Font('DSEG14Classic-Bold.ttf',70)
                             font2 = pygame.font.Font('DSEG14Classic-Bold.ttf', 20)
+                            font3 = pygame.font.Font('DSEG14Classic-Bold.ttf', 20)
                             text = font.render("GAME OVER", True, white)
                             text_rect = text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
-                            text1=font2.render("Press space to retry", True, white)
+                            text1=font2.render("Press   space   to   retry", True, white)
                             text1_rect = text1.get_rect(center=(WIDTH / 2, H /2))
+                            text2 = font3.render("Press   ESC   to   Quit", True, white)
+                            text2_rect = text2.get_rect(center=(WIDTH / 2, H / 3))
                             screen.blit(text, text_rect)
                             screen.blit(text1, text1_rect)
+                            screen.blit(text2, text2_rect)
                             pygame.display.update()
                             pygame.time.wait(2000)
                             run = True
