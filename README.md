@@ -34,12 +34,13 @@ Use the repo link to clone or download the zip file and extract it to run the co
 
 <br />
 
-## Video Link
+## Video Link , 
 
 For thorough explanation on this project, [CLICK HERE](https://youtu.be/pVisSXJ5nl8)
 
 ### THE PHANTOM TROUPE 🕷
-##### Student ID: 210246,210245
+#### Name of students: Samana Shrestha, Crystal Shrestha , Sujan Rijal
+##### CU ID: 11781648 , 11782911 , 
 ##### Batch: March '30B'
 
 
