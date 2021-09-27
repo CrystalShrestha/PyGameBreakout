@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Baki cha hai
+A famous arcade classic, breakout was developed in early 70s. In Breakout, the player uses a paddle to hit a ball that strikes into bricks above the screen which breaks as the ball hits them. The task is to clear all the bricks by hitting them. Back in its days, Breakout was one of the best selling arcade games of the 70s. Arcade Games is a very famous genre of games even today
 
 ## Link
 
