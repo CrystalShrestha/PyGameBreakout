@@ -8,7 +8,7 @@
 
 A famous arcade classic, breakout was developed in early 70s. In Breakout, the player uses a paddle to hit a ball that strikes into bricks above the screen which breaks as the ball hits them. The task is to clear all the bricks by hitting them. Back in its days, Breakout was one of the best selling arcade games of the 70s. Arcade Games is a very famous genre of games even today.
 ## Techs and Tools
-
+[<img align="left" alt="GitHub" width="26px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />]
 
 
 ## Link
