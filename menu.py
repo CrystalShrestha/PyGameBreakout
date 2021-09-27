@@ -9,7 +9,7 @@ class Menu:
         self.cursor_rect = pygame.Rect(0, 0, 20, 20)
         self.offset = - 100
 
-    def draw_cursor(self):
+    def cursor(self):
         self.game.draw_text('*', 15, self.cursor_rect.x, self.cursor_rect.y)
 
     def blit_screen(self):
@@ -27,20 +27,20 @@ class MainMenu(Menu):
         self.creditsx, self.creditsy = self.mid_w, self.mid_h + 70
         self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
 
-    def display_menu(self):
+    def display_menu(self): #Menu
         self.run_display = True
         while self.run_display:
             self.game.check_events()
             self.check_input()
             self.game.display.fill(self.game.BLACK)
-            self.game.draw_text('Main Menu', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 20)
-            self.game.draw_text("Start Game", 20, self.startx, self.starty)
-            self.game.draw_text("Controls", 20, self.controlsx, self.controlsy)
-            self.game.draw_text("Credits", 20, self.creditsx, self.creditsy)
-            self.draw_cursor()
-            self.blit_screen()
+            self.game.draw_text('Main Menu', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 20) #Menu text
+            self.game.draw_text("Start Game", 20, self.startx, self.starty) #Button
+            self.game.draw_text("Controls", 20, self.controlsx, self.controlsy) #Button
+            self.game.draw_text("Credits", 20, self.creditsx, self.creditsy)    #Button
+            self.cursor()   #Generate cursor
+            self.blit_screen()  #Generate Screen
 
-    def move_cursor(self):
+    def move_cursor(self):  #Menu cursor
         if self.game.DOWN_KEY:
             if self.state == 'Start':
                 self.cursor_rect.midtop = (self.controlsx + self.offset, self.controlsy)
@@ -87,7 +87,7 @@ class OptionsMenu(Menu):
         self.run_display = True
         while self.run_display:
             self.game.check_events()
-            self.check_input()
+            self.chk_input()
             self.game.display.fill((0, 0, 0))
             self.game.draw_text('Controls', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 30)
             self.game.draw_text("Left Arrow Key", 15, self.leftx, self.lefty)
@@ -96,7 +96,7 @@ class OptionsMenu(Menu):
 
             self.blit_screen()
 
-    def check_input(self):
+    def chk_input(self):
         if self.game.BACK_KEY or self.game.START_KEY:
             self.game.curr_menu = self.game.main_menu
             self.run_display = False
