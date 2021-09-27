@@ -7,6 +7,9 @@
 ## Introduction
 
 A famous arcade classic, breakout was developed in early 70s. In Breakout, the player uses a paddle to hit a ball that strikes into bricks above the screen which breaks as the ball hits them. The task is to clear all the bricks by hitting them. Back in its days, Breakout was one of the best selling arcade games of the 70s. Arcade Games is a very famous genre of games even today.
+
+<br />
+
 ## Techs and Tools
 <img align="left" alt="GitHub" width="26px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />
 <img align="left" alt="Python" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" />
@@ -14,8 +17,8 @@ A famous arcade classic, breakout was developed in early 70s. In Breakout, the p
 <img align="left" alt="Pygame" width="26px" src="https://www.pygame.org/docs/pygame_logo.gif" />
 <img align="left" alt="Canva" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/canva.svg" />
 <img align="left" alt="Adobe illustrator" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/adobeillustrator.svg" />
-<img align="left" alt="Pygame" width="26px" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fazuremarketplace.microsoft.com%2Fen-us%2Fmarketplace%2Fapps%2Fxbsoftware.ganttpro%3Ftab%3Doverview&psig=AOvVaw172Cr7HZHXKvOExs6uQ_b9&ust=1632821734041000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCPiY_tnvMCFQAAAAAdAAAAABAc" />
-
+ 
+<br />
 
 
 
