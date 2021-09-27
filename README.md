@@ -1,5 +1,5 @@
 
-<p align="center"><img src="" width="290"></p>
+<p align="center"><img src="https://github.com/CrystalShrestha/PyGameBreakout/blob/2d67e0dc11c55160e4e1f14ed6e4d70be15f8c0c/Canvaicon.PNG" width="290"></p>
 
 <p align="center">PYGAME BREAKOUT</p>
 
