@@ -385,7 +385,18 @@ class Game():
                     screen.blit(text, (520, 41))
                     #text = font.render('000', 1, white)
                     #screen.blit(text, (580, 120))
-                    text = font.render(f"High Score {highestScore}", True, white)
+                    highest_score=[]
+                    conn = sqlite3.connect('Scores.db')
+                    c = conn.cursor()
+
+                    c.execute("""SELECT *, oid FROM Highscore""")
+                    all = c.fetchall()
+                    for i in all:
+                        highest_score.append(i[1])
+                        Hs = max(highest_score)
+
+                    conn.commit()
+                    text = font.render(f"High Score {Hs}", True, white)
                     screen.blit(text, (20, 40))
 
                     all_sprites_list.draw(screen)
