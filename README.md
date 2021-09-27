@@ -23,9 +23,9 @@ A famous arcade classic, breakout was developed in early 70s. In Breakout, the p
 
 ## Functions
 •	Easy to understand menu system <br />
-•	Trouble-free mechanism
-•	Game restart option
-•	The classic arcade feels
+•	Trouble-free mechanism <br />
+•	Game restart option <br />
+•	The classic arcade feels <br />
 
 <br />
 
