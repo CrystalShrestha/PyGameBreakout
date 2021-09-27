@@ -40,7 +40,7 @@ For thorough explanation on this project, [CLICK HERE](https://youtu.be/pVisSXJ5
 
 ### THE PHANTOM TROUPE 🕷
 #### Name of students: Samana Shrestha, Crystal Shrestha , Sujan Rijal
-##### CU ID: 11781648 , 11782911 , 
+##### CU ID: 11781648 , 11782911 , 11782678 
 ##### Batch: March '30B'
 
 
