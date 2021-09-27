@@ -20,8 +20,16 @@ A famous arcade classic, breakout was developed in early 70s. In Breakout, the p
 <img align="left" alt="Adobe illustrator" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/adobeillustrator.svg" />
  
 <br />
+## Functions
+•	Easy to understand menu system
+•	Trouble-free mechanism
+•	Game restart option
+•	The classic arcade feels
 
-## Link
+<br />
+## How to use
+Use the repo link to clone or download the zip file and extract it to run the code.
+## Video Link
 
 For thorough explanation on this project, [CLICK HERE](https://youtu.be/pVisSXJ5nl8)
 
