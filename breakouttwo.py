@@ -365,10 +365,6 @@ class Game():
                             pygame.display.update()  # Updating screen
                             pygame.time.wait(2000)
                             run = True
-                        if (highestScore < score):
-                            import global_imports
-                            highestScore = score
-                            conn = sqlite3.connect('Scores.db')
 
                             # # Creating a Cursor
                             # c = conn.cursor()
