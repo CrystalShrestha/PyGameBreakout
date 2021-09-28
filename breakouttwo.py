@@ -2,7 +2,6 @@ from mongodb import fetch_high_score
 import sys
 from menu import *
 import global_imports
-import sqlite3
 pygame.init()
 
 high_score = fetch_high_score()
