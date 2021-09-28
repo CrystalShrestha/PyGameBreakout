@@ -36,7 +36,7 @@ Use the repo link to clone or download the zip file and extract it to run the co
 
 ## Video Link , 
 
-For thorough explanation on this project, [CLICK HERE](https://youtu.be/pVisSXJ5nl8)
+For thorough explanation on this project, [CLICK HERE](https://youtu.be/Drn2kfzqGmo)
 
 ### THE PHANTOM TROUPE 🕷
 #### Name of students: Samana Shrestha, Crystal Shrestha , Sujan Rijal
