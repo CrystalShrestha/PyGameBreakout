@@ -1,12 +1,7 @@
 from breakouttwo import Game
-import username
-import global_imports
 
+g = Game()
 
-username.main()
-if global_imports.running:
-    g = Game()
-
-    while g.running:
-        g.curr_menu.display_menu()
-        g.game_loop()
+while g.running:
+    g.curr_menu.display_menu()
+    g.game_loop()

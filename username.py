@@ -15,6 +15,10 @@ def main():
     def cleare(event):
         if Username.get() == 'Username':
             Username.set('')
+    def gl():
+        import leaderboard
+        leaderboard.main()
+
 
     def gg():
         global_imports.running = True
@@ -62,5 +66,6 @@ def main():
     e.place(x=300, y=410)
     e.bind('<Button-1>', cleare)
     Button(root, text='Submit', font=font, command=gg).place(x=320, y=500)
+    Button(root, text='Leaderboard', font=font, command=gl).place(x=320, y=550)
 
-    mainloop()
+    root.mainloop()
