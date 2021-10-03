@@ -34,7 +34,7 @@ Use the repo link to clone or download the zip file and extract it to run the co
 
 <br />
 
-## Video Link , 
+## Video Link  
 
 For thorough explanation on this project, [CLICK HERE](https://youtu.be/Drn2kfzqGmo)
 
